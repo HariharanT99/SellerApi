@@ -1,0 +1,12 @@
+D:\Training\Session\Angular\Identity\bin\Debug\net5.0\Identity.deps.json
+D:\Training\Session\Angular\Identity\bin\Debug\net5.0\Identity.dll
+D:\Training\Session\Angular\Identity\bin\Debug\net5.0\ref\Identity.dll
+D:\Training\Session\Angular\Identity\bin\Debug\net5.0\Identity.pdb
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\Identity.csproj.AssemblyReference.cache
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\Identity.GeneratedMSBuildEditorConfig.editorconfig
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\Identity.AssemblyInfoInputs.cache
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\Identity.AssemblyInfo.cs
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\Identity.csproj.CoreCompileInputs.cache
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\Identity.dll
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\ref\Identity.dll
+D:\Training\Session\Angular\Identity\obj\Debug\net5.0\Identity.pdb

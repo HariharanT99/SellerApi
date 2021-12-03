@@ -1,0 +1,16 @@
+﻿using DAL.IRepository;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace DAL.IConfiguration
+{
+    public interface IUnitOfWork
+    {
+        IProductRepository ProductRepository { get; }
+        ICategoryRepository CategoryRepository { get; }
+        IBrandRepository BrandRepository { get; }
+    }
+}

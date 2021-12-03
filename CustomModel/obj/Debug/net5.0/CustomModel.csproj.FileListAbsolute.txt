@@ -1,0 +1,11 @@
+D:\Training\Session\Angular\CustomModel\bin\Debug\net5.0\CustomModel.deps.json
+D:\Training\Session\Angular\CustomModel\bin\Debug\net5.0\CustomModel.dll
+D:\Training\Session\Angular\CustomModel\bin\Debug\net5.0\ref\CustomModel.dll
+D:\Training\Session\Angular\CustomModel\bin\Debug\net5.0\CustomModel.pdb
+D:\Training\Session\Angular\CustomModel\obj\Debug\net5.0\CustomModel.GeneratedMSBuildEditorConfig.editorconfig
+D:\Training\Session\Angular\CustomModel\obj\Debug\net5.0\CustomModel.AssemblyInfoInputs.cache
+D:\Training\Session\Angular\CustomModel\obj\Debug\net5.0\CustomModel.AssemblyInfo.cs
+D:\Training\Session\Angular\CustomModel\obj\Debug\net5.0\CustomModel.csproj.CoreCompileInputs.cache
+D:\Training\Session\Angular\CustomModel\obj\Debug\net5.0\CustomModel.dll
+D:\Training\Session\Angular\CustomModel\obj\Debug\net5.0\ref\CustomModel.dll
+D:\Training\Session\Angular\CustomModel\obj\Debug\net5.0\CustomModel.pdb
