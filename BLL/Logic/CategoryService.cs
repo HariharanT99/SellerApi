@@ -33,5 +33,29 @@ namespace BLL.Logic
 
             return result;
         }
+
+        //Get category
+        public ResponseCustomModel<IList<CategoryCustomModel>> GetCategory()
+        {
+            ResponseCustomModel<IList<CategoryCustomModel>> result = new();
+            List<CategoryCustomModel> categories = new();
+
+            var category = UnitOfWork.CategoryRepository.GetCategory();
+
+            foreach (var item in category.Data)
+            {
+                CategoryCustomModel cat = new();
+
+                cat.Id = item.Id;
+                cat.Name = item.Name;
+
+
+                categories.Add(cat);
+            }
+
+            result.Data = categories;
+
+            return result;
+        }
     }
 }

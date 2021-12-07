@@ -10,5 +10,7 @@ namespace BLL.ILogic
     public interface ICategoryService
     {
         Task<ResponseCustomModel<bool>> Create(CategoryCustomModel model);
+        ResponseCustomModel<IList<CategoryCustomModel>> GetCategory();
+
     }
 }

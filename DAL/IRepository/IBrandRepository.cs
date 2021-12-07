@@ -11,5 +11,8 @@ namespace DAL.IRepository
     public interface IBrandRepository
     {
         Task<ResponseCustomModel<bool>> CreateBrand(Brand model);
+        ResponseCustomModel<IEnumerable<Brand>> GetBrand();
+
+        Brand GetBrandById(int id);
     }
 }

@@ -1,5 +1,6 @@
 ﻿using BLL.ILogic;
 using CustomModel;
+using DAL.Data;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -22,7 +23,7 @@ namespace SellerAPI.Controllers
 
         //Add product
         [HttpPost("PostProduct")]
-        public async Task<ResponseCustomModel<bool>> AddProduct(ProductCustomModel model)
+        public async Task<ResponseCustomModel<bool>> AddProduct([FromForm] ProductCustomModel model)
         {
             var result = await _service.ProductService.AddProduct(model);
 
@@ -32,29 +33,43 @@ namespace SellerAPI.Controllers
 
         //Get product
         [HttpGet("GetProduct")]
-        public ResponseCustomModel<IList<ProductCustomModel>> GetProduct()
+        public IActionResult GetProduct()
         {
-            var result = _service.ProductService.GetProduct();
+            var response = _service.ProductService.GetProduct();
 
-            return result;
+            if (response.Error.Succeeded)
+            {
+                return Ok(response.Data);
+            }
+
+            return BadRequest(response.Error);
         }
 
         //Get Category
         [HttpGet("GetCategory")]
-        public ResponseCustomModel<IList<CategoryCustomModel>> GetCategory()
+        public IActionResult GetCategory()
         {
-            var result = _service.ProductService.GetCategory();
+            var response = _service.CategoryService.GetCategory();
 
-            return result;
+            if (response.Error.Succeeded)
+            {
+                return Ok(response.Data);
+            }
+
+            return BadRequest(response.Error);
         }
 
         //Get brand
         [HttpGet("GetBrand")]
-        public ResponseCustomModel<IList<BrandCustomModel>> GetBrand()
+        public IActionResult GetBrand()
         {
-            var result = _service.ProductService.GetBrand();
+            var response = _service.BrandService.GetBrand();
+            if (response.Error.Succeeded)
+            {
+                return Ok(response.Data);
+            }
 
-            return result;
+            return BadRequest(response.Error);
         }
 
         //Create brand

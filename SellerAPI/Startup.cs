@@ -19,6 +19,10 @@ using Microsoft.EntityFrameworkCore;
 using Identity.Action;
 using Identity.IAction;
 using DAL.Data;
+using BLL;
+using Mapster;
+using Entity;
+using CustomModel;
 
 namespace SellerAPI
 {
@@ -41,7 +45,7 @@ namespace SellerAPI
 
             services.AddDbContext<IdentityDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("SellerDbConnection")));
 
-            services.AddIdentity<User, Role>(options =>
+            services.AddIdentity<Identity.Model.User, Identity.Model.Role>(options =>
             {
                 options.Password.RequiredLength = 10;
                 options.Password.RequireUppercase = false;
@@ -49,11 +53,26 @@ namespace SellerAPI
                 options.Password.RequireNonAlphanumeric = false;
             }).AddEntityFrameworkStores<IdentityDbContext>();
 
+
+            //services.AddScoped<IValueService, ValueService>();
+
             services.AddScoped<IUserAction, UserAction>();
             services.AddScoped<IRoleAction, RoleAction>();
             services.AddScoped<IAccountAction, AccountAction>();
 
-            services.AddScoped<IService, Service>(provide => new Service(Configuration.GetConnectionString("SellerDbConnection")));
+            services.AddScoped<IService, Service>();
+
+
+            services.AddCors(options =>
+                {
+                    options
+                        .AddPolicy("Policy",
+                        builder =>
+                            builder
+                                .AllowAnyHeader()
+                                .AllowAnyMethod()
+                                .AllowAnyOrigin());
+                });
 
 
             services.AddSwaggerGen(c =>
@@ -61,7 +80,6 @@ namespace SellerAPI
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "SellerAPI", Version = "v1" });
             });
 
-            services.AddScoped<IService, Service>(provide => new Service(Configuration.GetConnectionString("SellerDbConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -74,11 +92,16 @@ namespace SellerAPI
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "SellerAPI v1"));
             }
 
+            TypeAdapterConfig<Product,GetProductCustomModel>.NewConfig()
+                .Map(dest => dest.Pictures, src => src.Pictures);
+
             app.UseHttpsRedirection();
 
             app.UseRouting();
 
             app.UseAuthorization();
+
+            app.UseCors("Policy");
 
             app.UseEndpoints(endpoints =>
             {

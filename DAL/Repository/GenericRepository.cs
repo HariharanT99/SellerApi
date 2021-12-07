@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DAL.Data;
+using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -9,11 +10,11 @@ namespace DAL.Repository
 {
     public class GenericRepository
     {
-        protected IDbConnection Connection { get; private set; }
+        protected SellerAppContext Db { get; private set; }
 
-        public GenericRepository(IDbConnection connection)
+        public GenericRepository(SellerAppContext db)
         {
-            this.Connection = connection;
+            this.Db = db;
         }
     }
 }

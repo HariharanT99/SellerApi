@@ -11,10 +11,7 @@ namespace BLL.ILogic
     {
         Task<ResponseCustomModel<bool>> AddProduct(ProductCustomModel model);
 
-        ResponseCustomModel<IList<ProductCustomModel>> GetProduct();
+        ResponseCustomModel<IList<GetProductCustomModel>> GetProduct();
 
-        ResponseCustomModel<IList<CategoryCustomModel>> GetCategory();
-
-        ResponseCustomModel<IList<BrandCustomModel>> GetBrand();
     }
 }

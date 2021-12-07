@@ -13,20 +13,20 @@ namespace DAL.Repository
 {
     public class CategoryRepository : GenericRepository, ICategoryRepository
     {
-        private readonly SellerAppContext _db;
+        //private readonly SellerAppContext Db;
 
-        public CategoryRepository(IDbConnection connection, SellerAppContext db): base(connection)
+        public CategoryRepository(SellerAppContext db): base(db)
         {
-            this._db = db;
+            //this.Db = db;
         }
 
         //Get Category
-        public ResponseCustomModel<IEnumerable<Category>> Get()
+        public ResponseCustomModel<IEnumerable<Category>> GetCategory()
         {
             ResponseCustomModel<IEnumerable<Category>> result = new();
             try
             {
-                result.Data = _db.Categories;
+                result.Data = Db.Categories;
             }
             catch (Exception)
             {
@@ -38,15 +38,31 @@ namespace DAL.Repository
             return result;
         }
 
+        //Get brand by Id
+        public Category GetCategoryById(int id)
+        {
+            var category = new Category();
+            try
+            {
+                category = Db.Categories.Find(id);
+            }
+            catch
+            {
+
+                throw;
+            }
+            return category;
+        }
+
         //Add category
         public async Task<ResponseCustomModel<bool>> Create(Category model)
         {
             ResponseCustomModel<bool> result = new();
             try
             {
-                _db.Categories.Add(model);
+                Db.Categories.Add(model);
 
-                _db.SaveChanges();   
+                Db.SaveChanges();   
             }
             catch (Exception ex)
             {

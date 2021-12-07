@@ -10,5 +10,6 @@ namespace BLL.ILogic
     public interface IBrandService
     {
         Task<ResponseCustomModel<bool>> Create(BrandCustomModel model);
+        ResponseCustomModel<IList<BrandCustomModel>> GetBrand();
     }
 }

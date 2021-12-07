@@ -13,11 +13,11 @@ namespace DAL.Repository
 {
     public class BrandRepository: GenericRepository, IBrandRepository
     {
-        private readonly SellerAppContext _db;
+        //private readonly SellerAppContext Db;
 
-        public BrandRepository(IDbConnection connection, SellerAppContext db): base(connection)
+        public BrandRepository(SellerAppContext db): base(db)
         {
-            this._db = db;
+            //this.Db = db;
         }
 
         //Get brands
@@ -27,7 +27,7 @@ namespace DAL.Repository
             ResponseCustomModel<IEnumerable<Brand>> result = new();
             try
             {
-                result.Data = _db.Brands;
+                result.Data = Db.Brands;
             }
             catch (Exception)
             {
@@ -39,14 +39,30 @@ namespace DAL.Repository
             return result;
         }
 
+        //Get brand by Id
+        public Brand GetBrandById(int id)
+        {
+            var brand = new Brand();
+            try
+            {
+                brand = Db.Brands.Find(id);
+            }
+            catch
+            {
+                throw new Exception("Something went wrong");
+            }
+            return brand;
+        }
+
+
         public async Task<ResponseCustomModel<bool>> CreateBrand(Brand model)
         {
             ResponseCustomModel<bool> result = new();
             try
             {
-                await _db.Brands.AddAsync(model);
+                await Db.Brands.AddAsync(model);
 
-                _db.SaveChanges();
+                Db.SaveChanges();
             }
             catch (Exception ex)
             {

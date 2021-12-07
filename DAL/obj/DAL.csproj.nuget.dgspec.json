@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Training\\Session\\Angular\\DAL\\DAL.csproj": {}
+    "D:\\Training\\Session\\Angular\\API\\DAL\\DAL.csproj": {}
   },
   "projects": {
-    "D:\\Training\\Session\\Angular\\CustomModel\\CustomModel.csproj": {
+    "D:\\Training\\Session\\Angular\\API\\CustomModel\\CustomModel.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Training\\Session\\Angular\\CustomModel\\CustomModel.csproj",
+        "projectUniqueName": "D:\\Training\\Session\\Angular\\API\\CustomModel\\CustomModel.csproj",
         "projectName": "CustomModel",
-        "projectPath": "D:\\Training\\Session\\Angular\\CustomModel\\CustomModel.csproj",
+        "projectPath": "D:\\Training\\Session\\Angular\\API\\CustomModel\\CustomModel.csproj",
         "packagesPath": "C:\\Users\\hariharant\\.nuget\\packages\\",
-        "outputPath": "D:\\Training\\Session\\Angular\\CustomModel\\obj\\",
+        "outputPath": "D:\\Training\\Session\\Angular\\API\\CustomModel\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -43,6 +43,12 @@
       "frameworks": {
         "net5.0": {
           "targetAlias": "net5.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.12, )"
+            }
+          },
           "imports": [
             "net461",
             "net462",
@@ -62,14 +68,14 @@
         }
       }
     },
-    "D:\\Training\\Session\\Angular\\DAL\\DAL.csproj": {
+    "D:\\Training\\Session\\Angular\\API\\DAL\\DAL.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Training\\Session\\Angular\\DAL\\DAL.csproj",
+        "projectUniqueName": "D:\\Training\\Session\\Angular\\API\\DAL\\DAL.csproj",
         "projectName": "DAL",
-        "projectPath": "D:\\Training\\Session\\Angular\\DAL\\DAL.csproj",
+        "projectPath": "D:\\Training\\Session\\Angular\\API\\DAL\\DAL.csproj",
         "packagesPath": "C:\\Users\\hariharant\\.nuget\\packages\\",
-        "outputPath": "D:\\Training\\Session\\Angular\\DAL\\obj\\",
+        "outputPath": "D:\\Training\\Session\\Angular\\API\\DAL\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -90,14 +96,14 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\Training\\Session\\Angular\\CustomModel\\CustomModel.csproj": {
-                "projectPath": "D:\\Training\\Session\\Angular\\CustomModel\\CustomModel.csproj"
+              "D:\\Training\\Session\\Angular\\API\\CustomModel\\CustomModel.csproj": {
+                "projectPath": "D:\\Training\\Session\\Angular\\API\\CustomModel\\CustomModel.csproj"
               },
-              "D:\\Training\\Session\\Angular\\Entity\\Entity.csproj": {
-                "projectPath": "D:\\Training\\Session\\Angular\\Entity\\Entity.csproj"
+              "D:\\Training\\Session\\Angular\\API\\Entity\\Entity.csproj": {
+                "projectPath": "D:\\Training\\Session\\Angular\\API\\Entity\\Entity.csproj"
               },
-              "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj": {
-                "projectPath": "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj"
+              "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj": {
+                "projectPath": "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj"
               }
             }
           }
@@ -150,14 +156,14 @@
         }
       }
     },
-    "D:\\Training\\Session\\Angular\\Entity\\Entity.csproj": {
+    "D:\\Training\\Session\\Angular\\API\\Entity\\Entity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Training\\Session\\Angular\\Entity\\Entity.csproj",
+        "projectUniqueName": "D:\\Training\\Session\\Angular\\API\\Entity\\Entity.csproj",
         "projectName": "Entity",
-        "projectPath": "D:\\Training\\Session\\Angular\\Entity\\Entity.csproj",
+        "projectPath": "D:\\Training\\Session\\Angular\\API\\Entity\\Entity.csproj",
         "packagesPath": "C:\\Users\\hariharant\\.nuget\\packages\\",
-        "outputPath": "D:\\Training\\Session\\Angular\\Entity\\obj\\",
+        "outputPath": "D:\\Training\\Session\\Angular\\API\\Entity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -214,14 +220,14 @@
         }
       }
     },
-    "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj": {
+    "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj",
+        "projectUniqueName": "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj",
         "projectName": "Identity",
-        "projectPath": "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj",
+        "projectPath": "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj",
         "packagesPath": "C:\\Users\\hariharant\\.nuget\\packages\\",
-        "outputPath": "D:\\Training\\Session\\Angular\\Identity\\obj\\",
+        "outputPath": "D:\\Training\\Session\\Angular\\API\\Identity\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

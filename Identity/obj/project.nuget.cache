@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Hrqa9jhQDkpy/EeH/avm7GyfvjGG+kPHfpcDfIkHoybjSFheptJFWJjv8cUD3WGINfHXrVxF8+9nWXNf9IC1pg==",
+  "dgSpecHash": "t84pv+00y8SO0Ie6NriZtZQTBRyvRS98dasBQjCZWf17k7uXZkHnJbhKN+oGGBVGfkObmYH4gj8TPdKije+3rA==",
   "success": true,
-  "projectFilePath": "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj",
+  "projectFilePath": "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\hariharant\\.nuget\\packages\\microsoft.aspnetcore.authentication\\2.2.0\\microsoft.aspnetcore.authentication.2.2.0.nupkg.sha512",
     "C:\\Users\\hariharant\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",

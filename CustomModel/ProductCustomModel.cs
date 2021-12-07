@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Http;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,7 +20,7 @@ namespace CustomModel
 
         public string Description { get; set; }
 
-        public DateTime CreatedOn { get; set; }
+        public DateTime? CreatedOn { get; set; }
 
         public DateTime ExpiryOn { get; set; }
 
@@ -31,5 +32,7 @@ namespace CustomModel
         public bool IsActive { get; set; }
 
         public DateTime? DeletedOn { get; set; }
+
+        public IFormFile File { get; set; }
     }
 }

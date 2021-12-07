@@ -14,23 +14,23 @@ namespace DAL.Data
 {
     public class UnitOfWork: IUnitOfWork
     {
-        private readonly IDbConnection _connection;
-        private readonly SellerAppContext _db;
+        //private readonly IDbConnection _connection;
+        //private readonly SellerAppContext _db;
 
         public IProductRepository ProductRepository { get; private set; }
 
         public ICategoryRepository CategoryRepository { get; private set; }
         public IBrandRepository BrandRepository { get; private set; }
-        public UnitOfWork(string connectionString)
+        public UnitOfWork(SellerAppContext db)
         {
-            _connection = new SqlConnection(connectionString);
+            //_connection = new SqlConnection(connectionString);
 
-            _db = new SellerAppContext();
+            //_db = db;
 
-            this.ProductRepository = new ProductRepository(_connection, _db);
+            this.ProductRepository = new ProductRepository(db);
 
-            this.CategoryRepository = new CategoryRepository(_connection, _db);
-            this.BrandRepository = new BrandRepository(_connection, _db);
+            this.CategoryRepository = new CategoryRepository(db);
+            this.BrandRepository = new BrandRepository(db);
             
         }
 

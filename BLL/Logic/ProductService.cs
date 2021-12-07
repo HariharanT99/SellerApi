@@ -2,11 +2,14 @@
 using CustomModel;
 using DAL.IConfiguration;
 using Entity;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Mapster;
 
 namespace BLL.Logic
 {
@@ -22,118 +25,90 @@ namespace BLL.Logic
         {
             ResponseCustomModel<bool> result = new();
 
-                var product = new Product
-                {
-                    Name = model.Name,
-                    CategoryId = model.CategoryId,
-                    BrandId = model.BrandId,
-                    Price = model.Price,
-                    CreatedBy = new Guid("9C25E902-48F2-4D24-3490-08D9B63E75B3"),
-                    InStock = model.InStock,
-                    ExpiryOn = model.ExpiryOn,
-                    Description = model.Description,
-                    CreatedOn = DateTime.UtcNow,
-                    IsActive = true
-                };
+            if (model.Name == null || model.Description == null || model.ExpiryOn <= DateTime.UtcNow || model.File == null)
+            {
+                result.Error.Succeeded = false;
+                result.Error.ErrorMsg = "Invalid data";
+                result.Error.ErrorCode = 422;
+                return result;
+            }
 
-                result = await UnitOfWork.ProductRepository.AddProduct(product);
+            var category = UnitOfWork.CategoryRepository.GetCategoryById(model.CategoryId);
+
+            var brand = UnitOfWork.BrandRepository.GetBrandById(model.BrandId);
+
+
+            var product = new Product
+            {
+                Name = model.Name,
+                CategoryId = model.CategoryId,
+                Category = category,
+                BrandId = model.BrandId,
+                Brand = brand,
+                Price = model.Price,
+                CreatedBy = new Guid("9C25E902-48F2-4D24-3490-08D9B63E75B3"),
+                InStock = model.InStock,
+                ExpiryOn = model.ExpiryOn,
+                Description = model.Description,
+                CreatedOn = DateTime.UtcNow,
+                IsActive = true
+            };
+
+            result = await UnitOfWork.ProductRepository.AddProduct(product, model.File);
+
 
             return result;
         }
+
+
 
         //Get product
-        public ResponseCustomModel<IList<ProductCustomModel>> GetProduct()
+        public ResponseCustomModel<IList<GetProductCustomModel>> GetProduct()
         {
-            ResponseCustomModel<IList<ProductCustomModel>> result = new();
-            ProductCustomModel prod = new();
-            try
-            {
-                var product = UnitOfWork.ProductRepository.GetProduct();
+            ResponseCustomModel<IList<GetProductCustomModel>> result = new();
+            List<GetProductCustomModel> products = new();
 
-                foreach (var item in product.Data)
+
+            List<PictureCustomModel> pic = new();
+
+            var product = UnitOfWork.ProductRepository.GetProduct();
+
+            foreach (var item in product.Data)
+            {
+                GetProductCustomModel prod = new();
+                BrandCustomModel brand = new();
+                CategoryCustomModel cat = new();
+
+                if (item.ExpiryOn <= DateTime.UtcNow && item.InStock <= 0)
                 {
-                    if (item.ExpiryOn <= DateTime.UtcNow && item.InStock <= 0)
-                    {
-                        continue;
-                    }
-                    prod.Id = item.Id;
-                    prod.Name = item.Name;
-                    prod.CategoryId = item.CategoryId;
-                    prod.BrandId = item.BrandId;
-                    prod.Price = item.Price;
-                    prod.Description = item.Description;
-                    prod.ExpiryOn = item.ExpiryOn;
-                    prod.InStock = item.InStock;
-
-                    result.Data.Add(prod);
+                    continue;
                 }
-            }
-            catch (Exception)
-            {
-                result.Error.Succeeded = false;
-                result.Error.ErrorMsg = "Something went wrong";
-                result.Error.ErrorCode = 500;
-                throw;
-            }
+                prod.Id = item.Id;
+                prod.Name = item.Name;
+                prod.CategoryId = item.CategoryId;
+                prod.BrandId = item.BrandId;
+                prod.Price = item.Price;
+                prod.Description = item.Description;
+                prod.ExpiryOn = item.ExpiryOn;
+                prod.InStock = item.InStock;
+
+                brand.Id = item.Brand.Id;
+                brand.Name = item.Brand.Name;
+
+                prod.Brand = brand;
+
+                cat.Id = item.Category.Id;
+                cat.Name = item.Category.Name;
+
+                products.Add(prod);
+            };
+
+            result.Data = products;
 
             return result;
         }
 
-        //Get category
-        public ResponseCustomModel<IList<CategoryCustomModel>> GetCategory()
-        {
-            ResponseCustomModel<IList<CategoryCustomModel>> result = new();
-            CategoryCustomModel cat = new();
-            try
-            {
-                var category = UnitOfWork.ProductRepository.GetProduct();
 
-                foreach (var item in category.Data)
-                {
-                    cat.Id = item.Id;
-                    cat.Name = item.Name;
-
-
-                    result.Data.Add(cat);
-                }
-            }
-            catch (Exception)
-            {
-                result.Error.Succeeded = false;
-                result.Error.ErrorMsg = "Something went wrong";
-                result.Error.ErrorCode = 500;
-                throw;
-            }
-
-            return result;
-        }
-
-        //Get brand
-        public ResponseCustomModel<IList<BrandCustomModel>> GetBrand()
-        {
-            ResponseCustomModel<IList<BrandCustomModel>> result = new();
-            BrandCustomModel prodBrand = new();
-            try
-            {
-                var brand = UnitOfWork.ProductRepository.GetProduct();
-
-                foreach (var item in brand.Data)
-                {
-                    prodBrand.Id = item.Id;
-                    prodBrand.Name = item.Name;
-
-                    result.Data.Add(prodBrand);
-                }
-            }
-            catch (Exception)
-            {
-                result.Error.Succeeded = false;
-                result.Error.ErrorMsg = "Something went wrong";
-                result.Error.ErrorCode = 500;
-                throw;
-            }
-
-            return result;
-        }
+     
     }
 }

@@ -1733,11 +1733,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj",
+      "projectUniqueName": "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj",
       "projectName": "Identity",
-      "projectPath": "D:\\Training\\Session\\Angular\\Identity\\Identity.csproj",
+      "projectPath": "D:\\Training\\Session\\Angular\\API\\Identity\\Identity.csproj",
       "packagesPath": "C:\\Users\\hariharant\\.nuget\\packages\\",
-      "outputPath": "D:\\Training\\Session\\Angular\\Identity\\obj\\",
+      "outputPath": "D:\\Training\\Session\\Angular\\API\\Identity\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

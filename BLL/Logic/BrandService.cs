@@ -34,5 +34,29 @@ namespace BLL.Logic
 
             return result;
         }
+
+        //Get brand
+        public ResponseCustomModel<IList<BrandCustomModel>> GetBrand()
+        {
+            ResponseCustomModel<IList<BrandCustomModel>> result = new();
+
+            List<BrandCustomModel> brands = new();
+
+            var brand = UnitOfWork.BrandRepository.GetBrand();
+
+            foreach (var item in brand.Data)
+            {
+                BrandCustomModel prodBrand = new();
+
+                prodBrand.Id = item.Id;
+                prodBrand.Name = item.Name;
+
+                brands.Add(prodBrand);
+            }
+
+            result.Data = brands;
+
+            return result;
+        }
     }
 }

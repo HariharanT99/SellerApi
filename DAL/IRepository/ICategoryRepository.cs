@@ -10,8 +10,9 @@ namespace DAL.IRepository
 {
     public interface ICategoryRepository
     {
-        ResponseCustomModel<IEnumerable<Category>> Get();
+        ResponseCustomModel<IEnumerable<Category>> GetCategory();
         Task<ResponseCustomModel<bool>> Create(Category category);
+        Category GetCategoryById(int id);
 
     }
 }

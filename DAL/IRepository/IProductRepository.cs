@@ -1,5 +1,6 @@
 ﻿using CustomModel;
 using Entity;
+using Microsoft.AspNetCore.Http;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,7 +11,7 @@ namespace DAL.IRepository
 {
     public interface IProductRepository
     {
-        Task<ResponseCustomModel<bool>> AddProduct(Product model);
+        Task<ResponseCustomModel<bool>> AddProduct(Product model, IFormFile file);
         ResponseCustomModel<IEnumerable<Product>> GetProduct();
     }
 }

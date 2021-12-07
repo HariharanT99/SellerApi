@@ -1,8 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "zlONe3YRQtHh/RQ8JaXFU3Xlga2Ip82qBSVHePyFgE1lNtxe3E+IPLneS+4WmRhbbystA1HInngNgBloZNZDAg==",
+  "dgSpecHash": "Q0Ify7+YbRafjdw3D/iQ4OGjypXrthdbripdg3sZm1/rCUe3J2L1icUe+8Cu4lX+A4yN5J1S9rmO0R/lLnrR0A==",
   "success": true,
-  "projectFilePath": "D:\\Training\\Session\\Angular\\CustomModel\\CustomModel.csproj",
-  "expectedPackageFiles": [],
+  "projectFilePath": "D:\\Training\\Session\\Angular\\API\\CustomModel\\CustomModel.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\hariharant\\.nuget\\packages\\microsoft.aspnetcore.http.features\\5.0.12\\microsoft.aspnetcore.http.features.5.0.12.nupkg.sha512",
+    "C:\\Users\\hariharant\\.nuget\\packages\\microsoft.extensions.primitives\\5.0.1\\microsoft.extensions.primitives.5.0.1.nupkg.sha512",
+    "C:\\Users\\hariharant\\.nuget\\packages\\system.io.pipelines\\5.0.1\\system.io.pipelines.5.0.1.nupkg.sha512"
+  ],
   "logs": []
 }

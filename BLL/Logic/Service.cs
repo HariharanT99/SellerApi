@@ -15,9 +15,10 @@ namespace BLL.Logic
         public IProductService ProductService { get; set; }
         public ICategoryService CategoryService { get; set; }
         public IBrandService BrandService { get; set; }
-        public Service(string connectionString)
+        public Service(SellerAppContext db)
         {
-            _unitOfWork = new UnitOfWork(connectionString);
+            _unitOfWork = new UnitOfWork(db);
+
 
             ProductService = new ProductService(_unitOfWork);
 
@@ -25,5 +26,11 @@ namespace BLL.Logic
 
             BrandService = new BrandService(_unitOfWork);
         }
+
+        //public Service(SellerAppContext db)
+        //{
+        //    _unitOfWork = new UnitOfWork(_connectionString, db);
+
+        //}
     }
 }
